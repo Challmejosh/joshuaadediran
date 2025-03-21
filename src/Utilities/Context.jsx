@@ -84,6 +84,7 @@ const Context = ({children}) => {
         {title:"Mini E-commerce",image: "./Mini-Cart.jpg",description: "A modern and responsive mini e-commerce featuring product categories, seamless add-to-cart functionality and a smooth purchase experience",github: "https://github.com/Challmejosh/mini-cart",demo:"https://mini-cart-nine.vercel.app",skills: "React + Tailwind + Paystack ",type: "Demo"},
         {title:"GiveRise Support",image: "./crowdfunding.jpg",description: "Discover way to raise funds and bring your idea's to life through collective contribution ",github: "https://https://github.com/Challmejosh/GiveRise",demo:"https://give-rise-crowdfunding.vercel.app",skills: "React + Tailwind + Paystack + Firebase  ",type: "Demo"},
         {title:"Chatgem",image: "./ChatgemAI.png",description: "An adaptive AI that creates unique responses, content, and ideas based on user input. 🚀",github: "https://https://github.com/Challmejosh/chatbot",demo:"https://chatbot-lake-sigma.vercel.app/",skills: "NextJS + Tailwind + Gemini Api  ",type: "Demo"},
+        {title:"Chatgem",image: "./ChatgemAI.png",description: "Manage and keep track of your porjects while each task is completed 🚀",github: "https://https://github.com/Challmejosh/projectmanagement",demo:"https://project-management-three-xi.vercel.app/",skills: "NextJS + Tailwind + ChartJS  ",type: "Demo"},
         
     ]
     const skills = [
