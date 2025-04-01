@@ -85,7 +85,7 @@ const Context = ({children}) => {
         {title:"GiveRise Support",image: "./crowdfunding.jpg",description: "Discover way to raise funds and bring your idea's to life through collective contribution ",github: "https://github.com/Challmejosh/GiveRise",demo:"https://give-rise-crowdfunding.vercel.app",skills: "React + Tailwind + Paystack + Firebase  ",type: "Demo"},
         {title:"Chatgem",image: "./ChatgemAI.png",description: "An adaptive AI that creates unique responses, content, and ideas based on user input. 🚀",github: "https://github.com/Challmejosh/chatbot",demo:"https://chatbot-lake-sigma.vercel.app/",skills: "NextJS + Tailwind + Gemini Api  ",type: "Demo"},
         {title:"Project Management",image: "./ProjectManagement.png",description: "Manage and keep track of your porjects while each task is completed 🚀",github: "https://github.com/Challmejosh/project-management",demo:"https://project-management-three-xi.vercel.app/",skills: "NextJS + Tailwind + ChartJS  ",type: "Demo"},
-        
+        {title:"Reown Store",image: "./ReownStore.png",description: "Shop your product for daily needs from clothes to shoes etc.",github: "https://github.com/Challmejosh/reown",demo:"https://reown-vert.vercel.app/",skills: "NextJS + Tailwind + OAuth + Paystack + Swiper ",type: "Demo"},       
     ]
     const skills = [
         {name: "ReactJS",image: ""},
