@@ -1,11 +1,30 @@
-import { motion} from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AppContext } from '../Utilities/Context'
+import client from '../client'
+import { useEffect } from 'react'
+import { useState } from 'react'
 
 const ProjectPage = () => {
     const fun = "Fun Projects"
-    const {projects,containerVariant,projectVariants,bg} = useContext(AppContext)
+    const {containerVariant,projectVariants,bg} = useContext(AppContext)
+    const [projects,setProjects] = useState([])
+    const query =`*[_type == "project"]{
+    title,
+    description,
+    github,
+    demo,
+    skills,
+    "imageUrl": image.asset->url
+    }`
+    const getProjects = async ()=>{
+        const get = await client.fetch(query) 
+        setProjects(get)
+    }
+    useEffect(()=>{
+        getProjects()
+    },[])
     return ( 
         <motion.div className=" flex items-center justify-center "
         variants={containerVariant}
@@ -41,7 +60,7 @@ const ProjectPage = () => {
                         variants={projectVariants}
                         whileHover="hover"
                         >
-                                <img src={project.image} alt="" className=' h-[150px] object-cover ' />
+                                <img src={project.imageUrl} alt="" className=' h-[150px] object-cover ' />
                                 <div className="flex h-[200px] text-sm flex-col gap-10 items-start justify-center p-3  ">
                                     <div className="flex flex-col items-start justify-center gap-1  ">
                                         <h2 className="text-2xl font-bold">{project.title}</h2>
