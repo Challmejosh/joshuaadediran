@@ -1,7 +1,8 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useContext, useState } from 'react';
 import { AppContext } from '../Utilities/Context';
-import { FaCheck, FaTimes } from 'react-icons/fa';
+import { FaCheck, FaGoogle, FaTiktok, FaTimes, FaTwitter } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const ContactPage = () => {
     const { containerVariant,sendEmail,messageDecline,messageSent } = useContext(AppContext)
@@ -18,18 +19,34 @@ const ContactPage = () => {
             setSendBtn(true)
         }
     return (
-        <motion.div className=" flex gap-5 sm:flex-row flex-col h-full items-center justify-center w-full "
+        <motion.div className=" flex gap-5 sm:flex-row sm:items-start flex-col h-full items-center justify-center w-full "
             variants={containerVariant}
             initial="state"
             animate="animation"
             exit="exit"
         >
-            <div className="sm:w-1/2 w-full flex items-center h-full flex-col justify-center gap-3">
-                <h2 className="text-2xl font-semibold">Want To work with me? Excited to hear from you!</h2>
-                <div className="">
-                    <p className="text-justify">I'm open to exciting <b>opportunities-remote or onsite, fulltime or part time.</b> If you think I'd be a great fit for your team or project. <br /><br />
-                        Let's create something amazing together I'd love to hear about your idea's <b>fill out the form,</b> and I'll be in touch soon!
-                    </p>
+            <div className="sm:w-1/2 w-full flex items-center h-full flex-col justify-center gap-5">
+                <>
+                    <h2 className="text-2xl font-semibold">Want To work with me? Excited to hear from you!</h2>
+                    <div className="">
+                        <p className="text-justify">I'm open to exciting <b>opportunities-remote or onsite, fulltime or part time.</b> If you think I'd be a great fit for your team or project. <br /><br />
+                            Let's create something amazing together I'd love to hear about your idea's <b>fill out the form,</b> and I'll be in touch soon!
+                        </p>
+                    </div>
+                </>
+                <div className="flex flex-col w-full items-start justify-center">
+                    <h2 className="font-semibold"> Social Contact </h2>
+                    <div className="flex gap-3 items-center justify-start ">
+                        <div>
+                            challmejosh@gmail.com
+                        </div>
+                        <Link target='_blank' to="https://tiktok.com/@joshdevv">
+                            <FaTiktok size={24} />
+                        </Link>
+                        <Link target='_blank' to="https://x.com/@joshwebdevv">
+                            <FaTwitter size={24} />
+                        </Link>
+                    </div>
                 </div>
             </div>
             <form onSubmit={(e)=>handleSubmit(e,email,name,message)} action="" className='sm:w-1/2 max-w-[400px] flex flex-col items-start justify-center gap-5'>
