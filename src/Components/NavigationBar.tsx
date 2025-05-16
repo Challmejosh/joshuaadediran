@@ -1,4 +1,4 @@
-import { FaHome, FaMoon, FaPhoneAlt, FaSuitcase, FaSun, FaTools, FaUser} from 'react-icons/fa'
+import { FaBars, FaHome, FaMoon, FaPhoneAlt, FaSuitcase, FaSun, FaTools, FaUser} from 'react-icons/fa'
 import {Link } from 'react-router-dom';
 import {  motion } from 'framer-motion';
 import { useContext, useState } from 'react';
@@ -8,15 +8,40 @@ import { AppContext } from '../Utilities/Context';
 const Navbar = ()=>{
     const {show,handleShow,navVariants,linkVariants,handleBg,bg} = useContext(AppContext)
     const [home,setHome] = useState(false)
+    const [menu,setMenu] = useState(false)
     const [skill,setSkill] = useState(false)
     const [project,setProject] = useState(false)
     const [contact,setContact] = useState(false)
+    const [openMenu,setOpenMenu] = useState(false)
     
     return(
-        <div className={`hidden md:flex flex-col items-center h-full w-[200px] justify-center fixed top-7 right-7   `}>
-           
+        <div className={`hidden md:flex flex-col items-center gap-5 h-full w-[200px] justify-center fixed top-7 right-7   `}>
+            <motion.div className="p-1 w-[150px] absolute top-0 h-fit gap-3 flex items-center justify-start  "
+            variants={navVariants}
+            initial="start"
+            animate="end"
+            whileHover="hover"
+            onHoverStart={()=>setMenu(true)}
+            onHoverEnd={()=>setMenu(false)}
+            >
+                <div onClick={()=>{
+                    setOpenMenu(prev=>!prev)
+                }} className={`${bg?"bg-[#E0E0E0] ":"bg-[#121212]"} transition-all cursor-pointer flex items-center justify-center rounded-full w-[50px] h-[50px]`}>
+                    <FaBars className={`${bg? "text-[#121212]" :"text-[#E0E0E0]"} transition-all`}   />
+                </div> 
+                    {menu&&<motion.span className=''
+                    initial={{opacity: 0,}}
+                    animate={{opacity: 1}}
+                    transition={{duration: 1}}
+                    >Menu</motion.span>}
+            </motion.div>
             {/* PC NAV LINK */}
-            <div className='hidden lg:flex flex-col gap-5 w-full items-center justify-center  '>
+            {openMenu&&
+            <motion.div className='hidden lg:flex flex-col gap-5 w-full items-center justify-center  '
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}}
+            >
                     <motion.div className="p-1 w-[150px] h-fit gap-3 flex items-center justify-start  "
                     variants={navVariants}
                     initial="start"
@@ -103,7 +128,8 @@ const Navbar = ()=>{
                         <FaMoon className={`${bg? "text-[#121212]" :"text-[#E0E0E0]"} transition-all`}  />
                     </div>)}
                     </motion.div>
-            </div>
+            </motion.div>
+            }
                
                
         </div>

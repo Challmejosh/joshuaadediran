@@ -7,7 +7,7 @@ const HomePage = () => {
     const visionText = "visions to life.";
     const {containerVariant} = useContext(AppContext)
     return ( 
-        <motion.div className=" bg-transparent gap-10 flex flex-col items-center justify-center "
+        <motion.div className=" bg-transparent gap-10 w-full h-full flex flex-col items-center justify-center "
             variants={containerVariant}    
             initial="state"
             animate="animation"
@@ -41,23 +41,23 @@ const HomePage = () => {
             </p>
             <div className="w-full sm:w-[400px] flex items-center justify-between  ">
                 <motion.div className="  "
-                    whileHover={{scale: 1.2,originX: 0}}
+                    whileHover={{scale: 0.9,originX: 0}}
                     initial={{opacity: 0,scale: 0}}
-                    animate={{opacity: 1,scale: 1}}
+                    animate={{opacity: 1,scale: 0.7}}
                     transition={{ duration: 3, type:"spring", stiffness:500}}
-                    whileTap={{scale: 1}}
+                    whileTap={{scale: 0.6}}
                 >
-                    <Link to="/contact" className='flex p-3 bg-black/80 items-center justify-center text-lg cursor-pointer text-white shadow-lg shadow-blue-500 w-[150px] rounded-sm ' >Hire Me</Link>
+                    <Link target="_blank" to="https://docs.google.com/document/d/1o3zknmyQSXyssn0w-YsOE83pqj2gHWD-i5c_yju8AKQ/edit?tab=t.0" className='flex p-3 bg-black/80 items-center justify-center text-lg cursor-pointer text-white shadow-lg shadow-blue-500 w-[150px] rounded-sm ' >View Resume</Link>
                 </motion.div>
 
                 <motion.div className=" "
-                  whileHover={{scale: 1.2,originX: 0}}
+                  whileHover={{scale: 0.9,originX: 0}}
                   initial={{opacity: 0,scale: 0}}
-                  animate={{opacity: 1,scale: 1}}
+                  animate={{opacity: 1,scale: 0.7}}
                   transition={{ duration: 3, type:"spring", stiffness:500}}
-                  whileTap={{scale: 1}}
+                  whileTap={{scale: 0.6}}
                 >
-                    <Link to="https://github.com/Challmejosh" className='flex p-3 bg-black/80 items-center justify-center text-lg cursor-pointer text-white shadow-lg shadow-blue-500 w-[150px] rounded-sm '>Github</Link>
+                    <Link target="_blank" to="https://github.com/Challmejosh" className='flex p-3 bg-black/80 items-center justify-center text-lg cursor-pointer text-white shadow-lg shadow-blue-500 w-[150px] rounded-sm '>Github</Link>
                 </motion.div>
             </div>
             

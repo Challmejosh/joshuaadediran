@@ -69,8 +69,8 @@ const ProjectPage = () => {
                                     <div className="flex flex-col h-[50%] items-start justify-center w-full gap-3 ">
                                         <div className="flex text-md  items-center justify-start">{project.skills}</div>
                                         <div className="flex w-[30%] p-1 items-center justify-between gap-5 ">
-                                            <Link className="cursor-pointer text-md" to={project.github}>code</Link>
-                                            <Link className="cursor-pointer text-md" to={project.demo}>demo</Link>
+                                            <Link target='_blank' className="cursor-pointer text-md" to={project.github}>code</Link>
+                                            <Link target='_blank' className="cursor-pointer text-md" to={project.demo}>demo</Link>
                                         </div>
                                     </div>
                                 </div>
