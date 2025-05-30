@@ -28,8 +28,8 @@ const ProjectPage = () => {
     return ( 
         <motion.div className=" flex items-center justify-center "
         variants={containerVariant}
-        initial="state"
-        animate="animation"
+        initial="initial"
+        animate="animate"
         exit="exit"
         >
             <div className=" flex flex-col h-full gap-3 items-center justify-center  ">

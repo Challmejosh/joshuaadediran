@@ -9,8 +9,8 @@ const HomePage = () => {
     return ( 
         <motion.div className=" bg-transparent gap-10 w-full h-full flex flex-col items-center justify-center "
             variants={containerVariant}    
-            initial="state"
-            animate="animation"
+            initial="initial"
+            animate="animate"
             exit= "exit"
         >
             {/* Name and Title  */}

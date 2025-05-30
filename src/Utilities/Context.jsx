@@ -1,5 +1,6 @@
 import { createContext,useState } from "react";
 import emailjs from '@emailjs/browser';
+import Writeclient from "../writeclient";
 const AppContext = createContext()
 
 const Context = ({children}) => {
@@ -15,28 +16,26 @@ const Context = ({children}) => {
       }
       const containerVariant = {
         initial: { 
-            opacity: 0, 
+            opacity: 1, 
             y: "-100vh",
-        },
+          },
         animate: { 
             opacity: 1,   
             y: 0,    
             transition: {
-                duration: 0.8, 
                 type: "spring",
                 stiffness: 50, 
                 damping: 12, 
                 when: "beforeChildren",
                 staggerChildren: 0.3, 
-                delay: 0.6
             }
         },
-        exit: {   // When the component is removed
-            opacity: 0,      // Fade out
-            y: "-100vh",     // Move back up out of the viewport
+        exit: {   
+            opacity: 0,    
+            y: "-100vh",     
             transition: {
-                ease: "easeInOut", // Smooth ease-in-out transition
-                duration: 0.6,     // Quick exit
+                ease: "easeInOut", 
+                duration: 0.6,     
             }
         }
     };
@@ -96,32 +95,46 @@ const Context = ({children}) => {
     ]
     const sendEmail = async (e,email,name,message) => {
         e.preventDefault();
-       const form ={
-            email,
-            name,
-            message
+        try {
+            const form ={
+                 email,
+                 name,
+                 message
+             }
+             await emailjs.send('service_p9xvhab', 'template_z8vym07', form, {
+                 publicKey: 'WpVKGvWo3oQE711ha',
+               })
+               .then(
+                 () => {
+                   setMessageSent(true)
+                   setTimeout(() => {
+                     setMessageSent(false)
+                   }, 5000);
+                 },
+                 (error) => {
+                     setMessageDecline(true)
+                     setTimeout(() => {
+                         setMessageDecline(false)
+                     }, 5000);
+                     console.log(error)
+                 },
+               );
+               await Writeclient.create({
+                 _type: "contact",
+                 email,
+                 name,
+                 message,
+               })
+        } catch (error) {
+            console.log(error)
+            setMessageDecline(true)
         }
-        await emailjs.send('service_p9xvhab', 'template_z8vym07', form, {
-            publicKey: 'WpVKGvWo3oQE711ha',
-          })
-          .then(
-            () => {
-              setMessageSent(true)
-              setTimeout(() => {
-                setMessageSent(false)
-              }, 5000);
-            },
-            (error) => {
-                setMessageDecline(true)
-                setTimeout(() => {
-                    setMessageDecline(false)
-                }, 5000);
-                console.log(error)
-            },
-          );
       };
+      const changeMessageDecline = ()=>{
+        setMessageDecline(false)
+      }
     return ( 
-        <AppContext.Provider value={{messageSent,messageDecline,linkVariants,sendEmail,navVariants,show,setShow,handleShow,containerVariant,projects,projectVariants,skills,bg,handleBg}} >
+        <AppContext.Provider value={{messageSent,messageDecline,linkVariants,sendEmail,navVariants,show,setShow,handleShow,containerVariant,projects,projectVariants,skills,bg,handleBg,changeMessageDecline}} >
             {children}
         </AppContext.Provider>
      );

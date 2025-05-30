@@ -18,8 +18,8 @@ const Skill = () => {
     return (
         <motion.div className="w-full bg-transparent gap-10 flex flex-col items-center justify-center "
         variants={containerVariant}
-        initial="state"
-        animate="animation"
+        initial="initial"
+        animate="animate"
         exit="exit"
         >
             <div className="text-center mb-8">

@@ -22,8 +22,8 @@ const SkillPage = () => {
     return (
         <motion.div className=""
             variants={containerVariant}
-            initial="state"
-            animate="animation"
+            initial="initial"
+            animate="animate"
             exit="exit"
         >
             
